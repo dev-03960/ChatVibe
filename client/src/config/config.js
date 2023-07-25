@@ -1,1 +1,1 @@
-export const path_url = "http://localhost:8000/api/";
+export const path_url = "https://chatvibe.onrender.com";
