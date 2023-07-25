@@ -1,0 +1,1 @@
+export const path_url = "http://localhost:8000/api/";
