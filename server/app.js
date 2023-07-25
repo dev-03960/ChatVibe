@@ -6,7 +6,7 @@ const app = express();
 
 const io = require('socket.io')(8080,{
     cors : {
-        origin: 'http://localhost:3000' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
+        origin: 'https://chatvibedev.netlify.app' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
       }
 })
 
@@ -20,7 +20,7 @@ const { Socket } = require('socket.io');
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 const corsOptions = {
-    origin: 'http://localhost:3000' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
+    origin: 'https://chatvibedev.netlify.app' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
   };
 
 app.use(cors(corsOptions));
