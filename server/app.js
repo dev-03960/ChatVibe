@@ -3,10 +3,11 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const app = express();
+const server = require('http').createServer(app);
 
-const io = require('socket.io')(8080,{
+const io = require('socket.io')(server,{
     cors : {
-        origin: 'https://chatvibedev.netlify.app' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
+       origin: '*', // Replace this with the client's domain (e.g., http://localhost:3000 for development)
       }
 })
 
@@ -257,7 +258,7 @@ app.get('/api/messages/:conversationId',async (req,res)=>{
 connectToDatabase()
   .then(() => {
     const port = process.env.PORT || 8000;
-    app.listen(port, () => {
+    server.listen(port, () => {
       console.log("APP listen on " + port);
     });
   })
