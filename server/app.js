@@ -192,7 +192,9 @@ app.get('/api/conversation/:userId',async (req,res)=>{
         if (!conversationId || !senderId || !message) {
            return res.status(400).send('Please give all required fields');}
            if (conversationId === 'new' && reciverid) {
+               console.log(reciverid);
             const newCoversation = new Conversation({ Members: [senderId, reciverid] });
+               console.log(newCoversation);
             await newCoversation.save();
             const newMessage = new Messages({ conversationId: newCoversation._id, senderId, message });
             await newMessage.save();
