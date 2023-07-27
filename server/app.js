@@ -188,19 +188,19 @@ app.get('/api/conversation/:userId',async (req,res)=>{
  app.post('/api/messages',async(req,res)=>{
 
     try {
-        const {conversationId,senderId,message,reciverid = ''} = req.body;
+        const {conversationId,senderId,message,receiverId = ''} = req.body;
         if (!conversationId || !senderId || !message) {
            return res.status(400).send('Please give all required fields');}
-           if (conversationId === 'new' && reciverid) {
-               console.log(reciverid);
-            const newCoversation = new Conversation({ Members: [senderId, reciverid] });
+           if (conversationId === 'new' && receiverId) {
+               console.log(receiverId);
+            const newCoversation = new Conversation({ Members: [senderId, receiverId] });
                console.log(newCoversation);
             await newCoversation.save();
             const newMessage = new Messages({ conversationId: newCoversation._id, senderId, message });
             await newMessage.save();
             return res.status(200).send('Message sent successfully');
         }
-        else if (!conversationId && !reciverid) {
+        else if (!conversationId && !receiverId) {
             return res.status(400).send('Please give all required fields')
         }
 
