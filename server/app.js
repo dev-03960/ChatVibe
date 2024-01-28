@@ -21,7 +21,7 @@ const { Socket } = require('socket.io');
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 const corsOptions = {
-    origin: 'https://chatvibedev.netlify.app' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
+    origin: 'http://localhost:5173/' , // Replace this with the client's domain (e.g., http://localhost:3000 for development)
   };
 
 app.use(cors(corsOptions));
